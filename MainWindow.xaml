@@ -1,0 +1,313 @@
+﻿<Window x:Class="InfoTruckDriver.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:InfoTruckDriver"
+        mc:Ignorable="d"
+        Title="InfoTruckDriver" Height="400" Width="1100" WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize" Loaded="WindowLoaded">
+    <Window.Resources>
+        <Style x:Key="MenuItemStyle1">
+            <Setter Property="ItemsControl.Height" Value="30"/>
+        </Style>
+        <Style TargetType="TabItem">
+            <Style.Triggers>
+                <Trigger Property="IsSelected" Value="False">
+                    <Setter Property="Background" Value="Gray"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+        <Style TargetType="Label">
+            <Setter Property="FontSize" Value="25"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+        </Style>
+        <Style x:Key="TextBoxStyle">
+            <Setter Property="ItemsControl.Width" Value="150"/>
+            <Setter Property="ItemsControl.Height" Value="50"/>
+            <Setter Property="ItemsControl.VerticalAlignment" Value="Center"/>
+            <Setter Property="ItemsControl.VerticalContentAlignment" Value="Center"/>
+            <Setter Property="ItemsControl.HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="ItemsControl.FontSize" Value="30"/>
+            <Setter Property="ItemsControl.Background" Value="White"/>
+            <Setter Property="ItemsControl.ToolTip" Value="Use a comma when entering numbers"/>
+        </Style>
+        <Style x:Key="BorderStyle">
+            <Setter Property="ItemsControl.Width" Value="150"/>
+            <Setter Property="ItemsControl.Height" Value="50"/>
+            <Setter Property="ItemsControl.BorderBrush" Value="Green"/>
+            <Setter Property="ItemsControl.BorderThickness" Value="5"/>
+            <Setter Property="ItemsControl.HorizontalAlignment" Value="Left"/>
+        </Style>
+        <Style x:Key="ButtonStyle1">
+            <Setter Property="ItemsControl.Width" Value="150"/>
+            <Setter Property="ItemsControl.Height" Value="50"/>
+            <Setter Property="ItemsControl.FontSize" Value="25"/>
+            <Setter Property="ItemsControl.Background" Value="Green"/>
+        </Style>
+        <Style x:Key="TextBlockStyle1">
+            <Setter Property="ItemsControl.Width" Value="140"/>
+            <Setter Property="ItemsControl.Height" Value="40"/>
+            <Setter Property="ItemsControl.FontSize" Value="30"/>
+        </Style>
+        <Style x:Key="SeparatorStyle1">
+            <Setter Property="ItemsControl.Width" Value="1"/>
+            <Setter Property="ItemsControl.HorizontalAlignment" Value="Left"/>
+            <Setter Property="ItemsControl.Background" Value="Black"/>
+        </Style>
+    </Window.Resources>
+    <Grid Background="Gray">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition/>
+            <RowDefinition Height="30"/>
+        </Grid.RowDefinitions>
+        <Menu x:Name="menu" Grid.Row="0" Background="Gray">
+            <MenuItem Header="File" Style="{StaticResource MenuItemStyle1}">
+                <MenuItem Header="Reset values" Style="{StaticResource MenuItemStyle1}" Click="ResetClick"/>
+                <Separator/>
+                <MenuItem Header="Exit" Style="{StaticResource MenuItemStyle1}" Click="ExitClick"/>
+            </MenuItem>
+            <MenuItem Header="Help" Style="{StaticResource MenuItemStyle1}">
+                <MenuItem Header="About InfoTruckDriver" Style="{StaticResource MenuItemStyle1}">
+                    <FlowDocumentScrollViewer IsToolBarVisible="True" Height="295" Width="760">
+                        <FlowDocument>
+                            <Paragraph TextAlignment="Center" FontSize="15">
+                                InfoTruckDriver
+                            </Paragraph>
+                            <Paragraph FontSize="10">
+                                Rules of cargo transportation:
+                                <LineBreak/>
+                                - link to U.S. Department of Transportation.
+                                <LineBreak/>
+                                Temperature:
+                                <LineBreak/>
+                                - conversion of degrees Celsius to Fahrenheit and back.
+                                <LineBreak/>
+                                Distance:
+                                <LineBreak/>
+                                - converting miles to kilometers and back.
+                                <LineBreak/>
+                                Weight:
+                                <LineBreak/>
+                                - converting pounds to kilograms and back.
+                                <LineBreak/>
+                                Lenght:
+                                <LineBreak/>
+                                - converting feet to meters and back.
+                                <LineBreak/>
+                                Volume:
+                                <LineBreak/>
+                                - converting gallons to liters and back.
+                                <LineBreak/>
+                                Fuel consumption:
+                                <LineBreak/>
+                                - converting miles/gallon to liters/100 kilometers and back.
+                            </Paragraph>
+                        </FlowDocument>
+                    </FlowDocumentScrollViewer>
+                </MenuItem>
+            </MenuItem>
+        </Menu>
+        <TabControl x:Name="tabControl" Grid.Row="1" TabStripPlacement="Left">
+            <TabItem Header="Rules of cargo transportation">
+                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Hyperlink Foreground="Green" FontSize="30" Click="HyperlinkClick">U.S. Department of Transportation</Hyperlink>
+                </TextBlock>
+            </TabItem>
+            <TabItem Header="Temperature">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Label Grid.Row="0" Grid.Column="0" Content="Celsius = "/>
+                    <TextBox x:Name="textboxCelsius" Grid.Row="0" Grid.Column="1" Style="{StaticResource TextBoxStyle}"/>
+                    <Button x:Name="btnTemp1" Grid.Row="0" Grid.Column="2" Content="Convert" Click="ToFahrenheitClick" Style="{StaticResource ButtonStyle1}"/>
+                    <Label Grid.Row="0" Grid.Column="3" Content="Fahrenheit = "/>
+                    <Border Grid.Row="0" Grid.Column="4" Style="{StaticResource BorderStyle}">
+                        <TextBlock x:Name="textblockFahrenheit" Grid.Row="0" Grid.Column="4" Style="{StaticResource TextBlockStyle1}"/>
+                    </Border>
+                    <Label Grid.Row="1" Grid.Column="0" Content="Fahrenheit = "/>
+                    <TextBox x:Name="textboxFahrenheit" Grid.Row="1" Grid.Column="1" Style="{StaticResource TextBoxStyle}"/>
+                    <Button x:Name="btnTemp2" Grid.Row="1" Grid.Column="2" Content="Convert" Click="ToCelsiusClick" Style="{StaticResource ButtonStyle1}"/>
+                    <Label Grid.Row="1" Grid.Column="3" Content="Celsius = "/>
+                    <Border Grid.Row="1" Grid.Column="4" Style="{StaticResource BorderStyle}">
+                        <TextBlock x:Name="textblockCelsius" Grid.Row="1" Grid.Column="4" Style="{StaticResource TextBlockStyle1}"/>
+                    </Border>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Distance">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Label Grid.Row="0" Grid.Column="0" Content="Mile = "/>
+                    <TextBox x:Name="textboxMile" Grid.Row="0" Grid.Column="1" Style="{StaticResource TextBoxStyle}"/>
+                    <Button x:Name="btnDistance1" Grid.Row="0" Grid.Column="2" Content="Convert" Click="ToKilometerClick" Style="{StaticResource ButtonStyle1}"/>
+                    <Label Grid.Row="0" Grid.Column="3" Content="Kilometer = "/>
+                    <Border Grid.Row="0" Grid.Column="4" Style="{StaticResource BorderStyle}">
+                        <TextBlock x:Name="textblockKilometer" Grid.Row="0" Grid.Column="4" Style="{StaticResource TextBlockStyle1}"/>
+                    </Border>
+                    <Label Grid.Row="1" Grid.Column="0" Content="Kilometer = "/>
+                    <TextBox x:Name="textboxKilometer" Grid.Row="1" Grid.Column="1" Style="{StaticResource TextBoxStyle}"/>
+                    <Button x:Name="btnDistance2" Grid.Row="1" Grid.Column="2" Content="Convert" Click="ToMileClick" Style="{StaticResource ButtonStyle1}"/>
+                    <Label Grid.Row="1" Grid.Column="3" Content="Mile = "/>
+                    <Border Grid.Row="1" Grid.Column="4" Style="{StaticResource BorderStyle}">
+                        <TextBlock x:Name="textblockMile" Grid.Row="1" Grid.Column="4" Style="{StaticResource TextBlockStyle1}"/>
+                    </Border>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Weight">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Label Grid.Row="0" Grid.Column="0" Content="Pound = "/>
+                    <TextBox x:Name="textboxPound" Grid.Row="0" Grid.Column="1" Style="{StaticResource TextBoxStyle}"/>
+                    <Button x:Name="btnWeight1" Grid.Row="0" Grid.Column="2" Content="Convert" Click="ToKgClick" Style="{StaticResource ButtonStyle1}"/>
+                    <Label Grid.Row="0" Grid.Column="3" Content="Kg = "/>
+                    <Border Grid.Row="0" Grid.Column="4" Style="{StaticResource BorderStyle}">
+                        <TextBlock x:Name="textblockKg" Grid.Row="0" Grid.Column="4" Style="{StaticResource TextBlockStyle1}"/>
+                    </Border>
+                    <Label Grid.Row="1" Grid.Column="0" Content="Kg = "/>
+                    <TextBox x:Name="textboxKg" Grid.Row="1" Grid.Column="1" Style="{StaticResource TextBoxStyle}"/>
+                    <Button x:Name="btnWeight2" Grid.Row="1" Grid.Column="2" Content="Convert" Click="ToPoundClick" Style="{StaticResource ButtonStyle1}"/>
+                    <Label Grid.Row="1" Grid.Column="3" Content="Pound = "/>
+                    <Border Grid.Row="1" Grid.Column="4" Style="{StaticResource BorderStyle}">
+                        <TextBlock x:Name="textblockPound" Grid.Row="1" Grid.Column="4" Style="{StaticResource TextBlockStyle1}"/>
+                    </Border>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Lenght">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Label Grid.Row="0" Grid.Column="0" Content="Foot = "/>
+                    <TextBox x:Name="textboxFoot" Grid.Row="0" Grid.Column="1" Style="{StaticResource TextBoxStyle}"/>
+                    <Button x:Name="btnLenght1" Grid.Row="0" Grid.Column="2" Content="Convert" Click="ToMeterClick" Style="{StaticResource ButtonStyle1}"/>
+                    <Label Grid.Row="0" Grid.Column="3" Content="Meter = "/>
+                    <Border Grid.Row="0" Grid.Column="4" Style="{StaticResource BorderStyle}">
+                        <TextBlock x:Name="textblockMeter" Grid.Row="0" Grid.Column="4" Style="{StaticResource TextBlockStyle1}"/>
+                    </Border>
+                    <Label Grid.Row="1" Grid.Column="0" Content="Meter = "/>
+                    <TextBox x:Name="textboxMeter" Grid.Row="1" Grid.Column="1" Style="{StaticResource TextBoxStyle}"/>
+                    <Button x:Name="btnLenght2" Grid.Row="1" Grid.Column="2" Content="Convert" Click="ToFootClick" Style="{StaticResource ButtonStyle1}"/>
+                    <Label Grid.Row="1" Grid.Column="3" Content="Foot = "/>
+                    <Border Grid.Row="1" Grid.Column="4" Style="{StaticResource BorderStyle}">
+                        <TextBlock x:Name="textblockFoot" Grid.Row="1" Grid.Column="4" Style="{StaticResource TextBlockStyle1}"/>
+                    </Border>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Volume">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Label Grid.Row="0" Grid.Column="0" Content="Gallon = "/>
+                    <TextBox x:Name="textboxGallon" Grid.Row="0" Grid.Column="1" Style="{StaticResource TextBoxStyle}"/>
+                    <Button x:Name="btnVolume1" Grid.Row="0" Grid.Column="2" Content="Convert" Click="ToLiterClick" Style="{StaticResource ButtonStyle1}"/>
+                    <Label Grid.Row="0" Grid.Column="3" Content="Liter = "/>
+                    <Border Grid.Row="0" Grid.Column="4" Style="{StaticResource BorderStyle}">
+                        <TextBlock x:Name="textblockLiter" Grid.Row="0" Grid.Column="4" Style="{StaticResource TextBlockStyle1}"/>
+                    </Border>
+                    <Label Grid.Row="1" Grid.Column="0" Content="Liter = "/>
+                    <TextBox x:Name="textboxLiter" Grid.Row="1" Grid.Column="1" Style="{StaticResource TextBoxStyle}"/>
+                    <Button x:Name="btnVolume2" Grid.Row="1" Grid.Column="2" Content="Convert" Click="ToGallonClick" Style="{StaticResource ButtonStyle1}"/>
+                    <Label Grid.Row="1" Grid.Column="3" Content="Gallon = "/>
+                    <Border Grid.Row="1" Grid.Column="4" Style="{StaticResource BorderStyle}">
+                        <TextBlock x:Name="textblockGallon" Grid.Row="1" Grid.Column="4" Style="{StaticResource TextBlockStyle1}"/>
+                    </Border>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Fuel consumption">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Label Grid.Row="0" Grid.Column="0" Content="MPG = "/>
+                    <TextBox x:Name="textboxMPG" Grid.Row="0" Grid.Column="1" Style="{StaticResource TextBoxStyle}"/>
+                    <Button x:Name="btnFC1" Grid.Row="0" Grid.Column="2" Content="Convert" Click="ToLiter100Click" Style="{StaticResource ButtonStyle1}"/>
+                    <Label Grid.Row="0" Grid.Column="3" Content="L/100km = "/>
+                    <Border Grid.Row="0" Grid.Column="4" Style="{StaticResource BorderStyle}">
+                        <TextBlock x:Name="textblockL100km" Grid.Row="0" Grid.Column="4" Style="{StaticResource TextBlockStyle1}"/>
+                    </Border>
+                    <Label Grid.Row="1" Grid.Column="0" Content="L/100km = "/>
+                    <TextBox x:Name="textboxL100km" Grid.Row="1" Grid.Column="1" Style="{StaticResource TextBoxStyle}"/>
+                    <Button x:Name="btnFC2" Grid.Row="1" Grid.Column="2" Content="Convert" Click="ToMPGClick" Style="{StaticResource ButtonStyle1}"/>
+                    <Label Grid.Row="1" Grid.Column="3" Content="MPG = "/>
+                    <Border Grid.Row="1" Grid.Column="4" Style="{StaticResource BorderStyle}">
+                        <TextBlock x:Name="textblockMPG" Grid.Row="1" Grid.Column="4" Style="{StaticResource TextBlockStyle1}"/>
+                    </Border>
+                </Grid>
+            </TabItem>
+        </TabControl>
+        <StatusBar x:Name="statusBar" Grid.Row="2" Background="Gray">
+            <Separator Style="{StaticResource SeparatorStyle1}"/>
+            <TextBlock Text="InfoTruckDriver in Action"/>
+            <Ellipse Stroke="Black" Width="18" Height="18" Fill="White">
+                <Ellipse.Triggers>
+                    <EventTrigger RoutedEvent="Window.Loaded">
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <ColorAnimation Storyboard.TargetProperty="Fill.Color" To="Green" Duration="0:0:0.2" AutoReverse="True" RepeatBehavior="Forever"/>
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger>
+                </Ellipse.Triggers>
+            </Ellipse>
+            <Separator Style="{StaticResource SeparatorStyle1}"/>
+            <TextBlock x:Name="currentTime"/>
+            <Separator Style="{StaticResource SeparatorStyle1}"/>
+            <TextBlock x:Name="currentDate"/>
+            <Separator Style="{StaticResource SeparatorStyle1}"/>
+        </StatusBar>
+    </Grid>
+</Window>
