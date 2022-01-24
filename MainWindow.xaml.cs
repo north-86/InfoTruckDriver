@@ -261,5 +261,15 @@ namespace InfoTruckDriver
             }, this.Dispatcher);
             timer.Start();
         }
+
+        private void HyperlinkClick2(object sender, RoutedEventArgs e)
+        {
+            var url = "https://www.rainviewer.com/weather-radar-map-live.html";
+            var info = new ProcessStartInfo(url)
+            {
+                UseShellExecute = true,
+            };
+            Process.Start(info);
+        }
     }
 }

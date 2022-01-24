@@ -308,6 +308,9 @@
             <Separator Style="{StaticResource SeparatorStyle1}"/>
             <TextBlock x:Name="currentDate"/>
             <Separator Style="{StaticResource SeparatorStyle1}"/>
+            <TextBlock Margin="505 0 0 0" Text="Useful link: "/>
+            <Hyperlink Foreground="Black" Click="HyperlinkClick2">RainViewer</Hyperlink>
+            <Separator Style="{StaticResource SeparatorStyle1}"/>
         </StatusBar>
     </Grid>
 </Window>
