@@ -21,7 +21,7 @@
             <RowDefinition Height="0.15*"/>
         </Grid.RowDefinitions>
         <TextBlock Grid.Row="0" x:Name="textblockName" Text="InfoTruckDriver" FontSize="40" Style="{StaticResource TextblockStyleAbout1}"/>
-        <TextBlock Grid.Row="1" x:Name="textblockVersion" Text="Version 1.0" FontSize="12" Style="{StaticResource TextblockStyleAbout1}"/>
+        <TextBlock Grid.Row="1" x:Name="textblockVersion" Text="v1.0.0" FontSize="12" Style="{StaticResource TextblockStyleAbout1}"/>
         <TextBlock Grid.Row="2" x:Name="textblockDescription" Text="Description: this application is designed to adapt truck drivers to the American measurement system" FontSize="15" Style="{StaticResource TextblockStyleAbout1}" TextWrapping="Wrap"/>
         <TextBlock Grid.Row="3" x:Name="textblockDeveloper" Text="2022 Aliaksandr Prystauka, software engineer" FontSize="13" Style="{StaticResource TextblockStyleAbout1}"/>
         <Button Grid.Row="4" x:Name="btnContinue" Click="BtnContinueClick" Content="Continue" Background="Green" FontSize="15"/>
