@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="About" Height="250" Width="360" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
     <Window.Resources>
-        <Style x:Key="TextblockStyleAbout1">
+        <Style TargetType="TextBlock">
             <Setter Property="ItemsControl.HorizontalAlignment" Value="Center"/>
             <Setter Property="ItemsControl.VerticalAlignment" Value="Center"/>
         </Style>
@@ -16,14 +16,16 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="0.3*"/>
             <RowDefinition Height="0.15*"/>
-            <RowDefinition Height="0.4*"/>
-            <RowDefinition Height="0.15*"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="0.20*"/>
             <RowDefinition Height="0.15*"/>
         </Grid.RowDefinitions>
-        <TextBlock Grid.Row="0" x:Name="textblockName" Text="InfoTruckDriver" FontSize="40" Style="{StaticResource TextblockStyleAbout1}"/>
-        <TextBlock Grid.Row="1" x:Name="textblockVersion" Text="v1.0.0" FontSize="12" Style="{StaticResource TextblockStyleAbout1}"/>
-        <TextBlock Grid.Row="2" x:Name="textblockDescription" Text="Description: this application is designed to adapt truck drivers to the American measurement system" FontSize="15" Style="{StaticResource TextblockStyleAbout1}" TextWrapping="Wrap"/>
-        <TextBlock Grid.Row="3" x:Name="textblockDeveloper" Text="2022 Aliaksandr Prystauka, software engineer" FontSize="13" Style="{StaticResource TextblockStyleAbout1}"/>
-        <Button Grid.Row="4" x:Name="btnContinue" Click="BtnContinueClick" Content="Continue" Background="Green" FontSize="15"/>
+        <TextBlock Grid.Row="0" x:Name="textblockName" Text="InfoTruckDriver" FontSize="40"/>
+        <TextBlock Grid.Row="1" x:Name="textblockVersion" Text="v1.0.1" FontSize="12"/>
+        <TextBlock Grid.Row="2" x:Name="textblockDescription" Text="This application is designed to adapt truck drivers" FontSize="15"/>
+        <TextBlock Grid.Row="3" x:Name="textblockDescription2" Text="to the American measurement system" FontSize="15"/>
+        <TextBlock Grid.Row="4" x:Name="textblockDeveloper" Text="2022 Aliaksandr Prystauka, software engineer" FontSize="13"/>
+        <Button Grid.Row="5" x:Name="btnContinue" Click="BtnContinueClick" Content="Continue" Background="Green" FontSize="15"/>
     </Grid>
 </Window>
