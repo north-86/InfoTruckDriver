@@ -78,7 +78,7 @@ namespace InfoTruckDriver
             if (celsius >= -70 && celsius <= 60)
             {
                 decimal fahrenheit = (celsius * 9 / 5) + 32;
-                textblockFahrenheit.Text = fahrenheit.ToString();
+                textblockFahrenheit.Text = Math.Round(fahrenheit, 1).ToString();
             }
             else
             {
@@ -93,7 +93,7 @@ namespace InfoTruckDriver
             if(fahrenheit >= -94 && fahrenheit <= 140)
             {
                 decimal celsius = (fahrenheit - 32) * 5 / 9;
-                textblockCelsius.Text = celsius.ToString();
+                textblockCelsius.Text = Math.Round(celsius, 1).ToString();
             }
             else
             {
@@ -108,7 +108,7 @@ namespace InfoTruckDriver
             if (mile >= 0)
             {
                 decimal kilometer = mile * 1.609m;
-                textblockKilometer.Text = kilometer.ToString();
+                textblockKilometer.Text = Math.Round(kilometer, 3).ToString();
             }
             else
             {
@@ -123,7 +123,7 @@ namespace InfoTruckDriver
             if (kilometer >= 0)
             {
                 decimal mile = kilometer / 1.609m;
-                textblockMile.Text = mile.ToString();
+                textblockMile.Text = Math.Round(mile, 3).ToString();
             }
             else
             {
@@ -138,7 +138,7 @@ namespace InfoTruckDriver
             if (gallon >= 0)
             {
                 decimal liter = gallon * 3.785m;
-                textblockLiter.Text = liter.ToString();
+                textblockLiter.Text = Math.Round(liter, 2).ToString();
             }
             else
             {
@@ -153,7 +153,7 @@ namespace InfoTruckDriver
             if (liter >= 0)
             {
                 decimal gallon = liter / 3.785m;
-                textblockGallon.Text = gallon.ToString();
+                textblockGallon.Text = Math.Round(gallon, 2).ToString();
             }
             else
             {
@@ -168,7 +168,7 @@ namespace InfoTruckDriver
             if (mpg >= 0)
             {
                 decimal l100km = 235.215m / mpg;
-                textblockL100km.Text = l100km.ToString();
+                textblockL100km.Text = Math.Round(l100km, 2).ToString();
             }
             else
             {
@@ -183,7 +183,7 @@ namespace InfoTruckDriver
             if (l100km >= 0)
             {
                 decimal mpg = 235.215m / l100km;
-                textblockMPG.Text = mpg.ToString();
+                textblockMPG.Text = Math.Round(mpg, 2).ToString();
             }
             else
             {
@@ -198,7 +198,7 @@ namespace InfoTruckDriver
             if (pound >= 0)
             {
                 decimal kg = pound * 0.4536m;
-                textblockKg.Text = kg.ToString();
+                textblockKg.Text = Math.Round(kg, 3).ToString();
             }
             else
             {
@@ -213,7 +213,7 @@ namespace InfoTruckDriver
             if (kg >= 0)
             {
                 decimal pound = kg / 0.4536m;
-                textblockPound.Text = pound.ToString();
+                textblockPound.Text = Math.Round(pound, 3).ToString();
             }
             else
             {
@@ -228,7 +228,7 @@ namespace InfoTruckDriver
             if (foot >= 0)
             {
                 decimal meter = foot * 0.3048m;
-                textblockMeter.Text = meter.ToString();
+                textblockMeter.Text = Math.Round(meter, 2).ToString();
             }
             else
             {
@@ -243,7 +243,7 @@ namespace InfoTruckDriver
             if (meter >= 0)
             {
                 decimal foot = meter / 0.3048m;
-                textblockFoot.Text = foot.ToString();
+                textblockFoot.Text = Math.Round(foot, 2).ToString();
             }
             else
             {
