@@ -22,7 +22,7 @@
             <RowDefinition Height="0.15*"/>
         </Grid.RowDefinitions>
         <TextBlock Grid.Row="0" x:Name="textblockName" Text="InfoTruckDriver" FontSize="40"/>
-        <TextBlock Grid.Row="1" x:Name="textblockVersion" Text="v1.0.1" FontSize="12"/>
+        <TextBlock Grid.Row="1" x:Name="textblockVersion" Text="v1.1.1" FontSize="12"/>
         <TextBlock Grid.Row="2" x:Name="textblockDescription" Text="This application is designed to adapt truck drivers" FontSize="15"/>
         <TextBlock Grid.Row="3" x:Name="textblockDescription2" Text="to the American measurement system" FontSize="15"/>
         <TextBlock Grid.Row="4" x:Name="textblockDeveloper" Text="2022 Aliaksandr Prystauka, software engineer" FontSize="13"/>

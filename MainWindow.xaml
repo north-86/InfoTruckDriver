@@ -29,7 +29,7 @@
             <Setter Property="ItemsControl.HorizontalContentAlignment" Value="Center"/>
             <Setter Property="ItemsControl.FontSize" Value="30"/>
             <Setter Property="ItemsControl.Background" Value="White"/>
-            <Setter Property="ItemsControl.ToolTip" Value="Use a comma when entering numbers"/>
+            <Setter Property="ItemsControl.ToolTip" Value="Use a comma or point when entering numbers"/>
         </Style>
         <Style x:Key="BorderStyle">
             <Setter Property="ItemsControl.Width" Value="150"/>
