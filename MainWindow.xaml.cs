@@ -264,7 +264,7 @@ namespace InfoTruckDriver
 
         private void HyperlinkClick2(object sender, RoutedEventArgs e)
         {
-            var url = "https://www.rainviewer.com/weather-radar-map-live.html";
+            var url = "https://www.weather.gov/";
             var info = new ProcessStartInfo(url)
             {
                 UseShellExecute = true,
