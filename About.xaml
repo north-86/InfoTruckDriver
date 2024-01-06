@@ -14,18 +14,16 @@
     </Window.Resources>
     <Grid Background="Gray">
         <Grid.RowDefinitions>
-            <RowDefinition Height="0.3*"/>
-            <RowDefinition Height="0.15*"/>
+            <RowDefinition Height="0.45*"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="0.20*"/>
             <RowDefinition Height="0.15*"/>
         </Grid.RowDefinitions>
         <TextBlock Grid.Row="0" x:Name="textblockName" Text="InfoTruckDriver" FontSize="40"/>
-        <TextBlock Grid.Row="1" x:Name="textblockVersion" Text="v1.2.2" FontSize="12"/>
-        <TextBlock Grid.Row="2" x:Name="textblockDescription" Text="This application is designed to adapt truck drivers" FontSize="15"/>
-        <TextBlock Grid.Row="3" x:Name="textblockDescription2" Text="to the American measurement system" FontSize="15"/>
-        <TextBlock Grid.Row="4" x:Name="textblockDeveloper" Text="2022 Aliaksandr Prystauka, software engineer" FontSize="13"/>
-        <Button Grid.Row="5" x:Name="btnContinue" Click="BtnContinueClick" Content="Continue" Background="Green" FontSize="15"/>
+        <TextBlock Grid.Row="1" x:Name="textblockDescription" Text="This application is designed to adapt truck drivers" FontSize="15"/>
+        <TextBlock Grid.Row="2" x:Name="textblockDescription2" Text="to the American measurement system" FontSize="15"/>
+        <TextBlock Grid.Row="3" x:Name="textblockDeveloper" Text="2024 Aliaksandr Prystauka" FontSize="13"/>
+        <Button Grid.Row="4" x:Name="btnContinue" Click="BtnContinueClick" Content="Continue" Background="Green" FontSize="15"/>
     </Grid>
 </Window>
